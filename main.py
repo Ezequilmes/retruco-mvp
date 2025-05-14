@@ -1,5 +1,8 @@
 import envido
 import cv2
+from flask_socketio import SocketIO
+
+socketio = SocketIO()
 
 ################
 ## cartas.txt ##
@@ -28,3 +31,21 @@ imagen = cv2.imread(path+"photo0"+formato)
 fuente = cv2.FONT_HERSHEY_TRIPLEX
 cv2.putText(imagen, texto, (10,365), fuente, 1, (256, 256, 256), 1)
 cv2.imwrite(path+"photo1"+formato, imagen)
+
+cartas = map(lambda x: x.upper(), ["as", "7", "3"])  # Ejemplo de map
+cartas = list(cartas)  # Convertir a lista
+socketio.emit("cartas", {"cartas": cartas})
+
+@socketio.on("join_game")
+def handle_join_game(data):
+    username = data["username"]
+    # Generar las cartas (ejemplo)
+    cartas = ["As de Espadas", "7 de Oro", "3 de Bastos"]
+    # Emitir las cartas al cliente
+    socketio.emit("cartas", {"cartas": cartas})
+
+# The following JavaScript code should be moved to a separate .js file:
+# socket.on("cartas", (data) => {
+#   const div = document.getElementById("cartas");
+#   div.innerHTML = `<strong>Tus cartas:</strong><br>` + data.cartas.join("<br>");
+# });

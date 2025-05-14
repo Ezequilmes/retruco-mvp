@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Truco Web</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body>
+  <div id="juego">
+    <h1>TRUCO WEB</h1>
+    <div id="registro">
+      <input type="text" id="username" placeholder="Tu nombre">
+      <button onclick="unirse()">Unirse al juego</button>
+    </div>
+    <div id="mesa" class="oculto">
+      <div id="cartas"></div>
+      <div id="chat">
+        <input type="text" id="inputMsg" placeholder="Escribí un mensaje">
+        <button onclick="enviarMensaje()">Enviar</button>
+        <div id="mensajes"></div>
+      </div>
+    </div>
+  </div>
+  <script src="/static/game.js"></script>
+  <script>
+    function unirse() {
+      const username = document.getElementById('username').value.trim();
+      if (!username) {
+          alert('Por favor, ingresa tu nombre.');
+          return;
+      }
+      // Lógica para unirse al juego
+    }
+  </script>
+</body>
+</html>

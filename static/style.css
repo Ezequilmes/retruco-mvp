@@ -1,0 +1,48 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #076324;
+  color: white;
+  text-align: center;
+}
+
+#juego {
+  margin: 50px auto;
+  width: 90%;
+  max-width: 600px;
+}
+
+input, button {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+button {
+  background-color: #1e7f3c;
+  color: white;
+  cursor: pointer;
+}
+
+#cartas {
+  margin: 20px;
+  font-size: 20px;
+}
+
+#chat {
+  margin-top: 20px;
+}
+
+#mensajes {
+  text-align: left;
+  margin-top: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  background: rgba(255,255,255,0.1);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.oculto {
+  display: none;
+}
