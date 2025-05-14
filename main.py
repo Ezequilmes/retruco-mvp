@@ -1,8 +1,20 @@
 import envido
 import cv2
+import os
+from flask import Flask
 from flask_socketio import SocketIO
 
-socketio = SocketIO()
+app = Flask(__name__)
+socketio = SocketIO(app)
+
+@app.route("/")
+def index():
+    return "¡Hola, Railway!"
+
+if __name__ == "__main__":
+    # Usar el puerto asignado por Railway
+    port = int(os.environ.get("PORT", 5000))
+    socketio.run(app, host="0.0.0.0", port=port)
 
 ################
 ## cartas.txt ##
