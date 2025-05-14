@@ -54,4 +54,9 @@ def contarEnvido(carta1,carta2,carta3):
     
     
     return texto
-        
+
+# Define arreglo with example card values
+arreglo = ["1C", "7E", "3B"]  # Replace with actual card values as needed
+print(arreglo)  # Verifica el contenido de la lista de cartas
+texto = contarEnvido(arreglo[0], arreglo[1], arreglo[2])
+

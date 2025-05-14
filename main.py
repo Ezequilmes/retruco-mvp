@@ -19,7 +19,7 @@ arreglo = list()
 # Acceder a cartas.txt 
 arch = open('cartas.txt', 'r')
 for linea in arch:
-    arreglo.append(linea)
+    arreglo.append(int(linea.strip()))  # Elimina espacios en blanco o caracteres de nueva línea
 arch.close() 
 
 # Permite borrar \n que hay en la lista
